@@ -3,5 +3,6 @@ class Entry < ActiveRecord::Base
   validates :description, :format => { :with => /[a-zA-Z]+/ }
 
   belongs_to :category
+  belongs_to :user
 
 end

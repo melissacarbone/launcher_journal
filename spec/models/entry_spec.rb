@@ -8,6 +8,6 @@ describe Entry do
   it { should_not have_valid(:description).when(' ', nil, 123) }
 
   it { should belong_to(:category) }
-  #it { should belong_to(:user) }
+  it { should belong_to(:user) }
 
 end

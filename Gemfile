@@ -32,6 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'quiet_assets'
+
 
 group :development, :test do
   gem 'rspec-rails'

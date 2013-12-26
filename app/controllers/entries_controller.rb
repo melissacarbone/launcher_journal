@@ -2,33 +2,41 @@ class EntriesController < ApplicationController
 
 def index
   @entries = Entry.all
-
-   respond_to do |format|
-      format.html { render index.html.erb }
-      format.json { render json: @events }
-    end
-end
-
-def show
 end
 
 def new
   @entry = Entry.new
 end
 
+def show
+   @entry = Entry.find(params[:id])
+end
+
 def create
     @entry = Entry.new(entry_params)
 
-    respond_to do |format|
       if @entry.save
-        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @entry }
+        redirect_to @entry, notice: 'Entry was successfully created.'
       else
-        format.html { render action: 'new' }
-        format.json { render json: @entry.errors, status: :unprocessable_entity }
+        render 'new'
       end
+end
+
+def edit
+  @entry = Entry.find(params[:id])
+end
+
+def update
+  @entry = Entry.find(params[:id])
+
+    if @entry.update(params[:entry].permit(:title, :description))
+      redirect_to @entry
+    else
+      render 'edit'
     end
 end
+
+
 
 private
   def entry_params

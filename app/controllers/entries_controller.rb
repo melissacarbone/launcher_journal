@@ -36,11 +36,16 @@ def update
     end
 end
 
+def destroy
+  @entry = Entry.find(params[:id])
+    @entry.destroy
 
+    redirect_to entries_path
+end
 
 private
   def entry_params
-      params.require(:entry).permit(:title, :description)
+    params.require(:entry).permit(:title, :description)
   end
 
 end

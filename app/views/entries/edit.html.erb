@@ -23,6 +23,8 @@
     <%= f.text_area :description %>
   </p>
 
+  <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+
   <p>
     <%= f.submit %>
   </p>

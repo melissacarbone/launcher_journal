@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
 
 def index
-  @entries = Entry.all
+  @entries = Entry.most_recent
 end
 
 def new

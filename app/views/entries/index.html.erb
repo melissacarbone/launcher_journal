@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Entry</th>
-      <th></th>
+      <th>Created At</th>
       <th></th>
       <th></th>
     </tr>
@@ -13,6 +13,7 @@
   <% @entries.each do |entry| %>
     <tr>
        <td><%= entry.title %></td>
+       <td><%= entry.created_at %></td>
        <td><%= link_to 'Show', entry %></td>
        <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
        <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,4 +23,5 @@
 
 <br>
 
-<%= link_to 'New Entry', new_entry_path %>
+<%= link_to 'New Entry', new_entry_path %> <br>
+<%= link_to 'Categories', categories_path %>

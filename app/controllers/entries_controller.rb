@@ -29,7 +29,7 @@ end
 def update
   @entry = Entry.find(params[:id])
 
-    if @entry.update(params[:entry].permit(:title, :description))
+    if @entry.update(entry_params)
       redirect_to @entry
     else
       render 'edit'
@@ -45,7 +45,7 @@ end
 
 private
   def entry_params
-    params.require(:entry).permit(:title, :description)
+    params.require(:entry).permit(:title, :description, :category_id)
   end
 
 end
